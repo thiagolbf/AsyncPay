@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="AsyncPay.Api/AsyncPay.Api.csproj" />
+  <Project Path="AsyncPay.Core/AsyncPay.Core.csproj" />
+  <Project Path="AsyncPay.Worker/AsyncPay.Worker.csproj" />
+</Solution>
