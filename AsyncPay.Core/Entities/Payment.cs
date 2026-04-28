@@ -1,11 +1,12 @@
-﻿using System;
+﻿using AsyncPay.Core.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace AsyncPay.Core.Entities;
 
-sealed class Payment : EntityBase
+public sealed class Payment : EntityBase
 {
     public Guid MerchantId { get; private set; }
 
@@ -24,4 +25,30 @@ sealed class Payment : EntityBase
     public DateTime CreatedAt { get; private set; }
     public DateTime? UpdatedAt { get; private set; }
 
+    //EF
+    private Payment() { }
+
+    public Payment(Guid merchantId, string userId, decimal amount, string currency)
+    {
+        if (merchantId == Guid.Empty)
+            throw new ArgumentException("Id Comerciante inválido");
+
+        if (string.IsNullOrWhiteSpace(userId))
+            throw new ArgumentException("Id Usuário inválido");
+
+        if (amount <= 0)
+            throw new ArgumentException("Valor deve ser maior que zero");
+
+        if (string.IsNullOrWhiteSpace(currency))
+            throw new ArgumentException("Moeda inválida");
+
+        MerchantId = merchantId;
+        UserId = userId;
+        Amount = amount;
+        Currency = currency;
+
+        Status = PaymentStatus.Pending;
+        CreatedAt = DateTime.UtcNow;
+    }
 }
+
