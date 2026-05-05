@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="AsyncPay.Api/AsyncPay.Api.csproj" />
   <Project Path="AsyncPay.Core/AsyncPay.Core.csproj" />
+  <Project Path="AsyncPay.Infrastructure/AsyncPay.Infrastructure.csproj" Id="dd748ee9-6902-4279-b6d5-1c01a6464de7" />
   <Project Path="AsyncPay.Worker/AsyncPay.Worker.csproj" />
 </Solution>
