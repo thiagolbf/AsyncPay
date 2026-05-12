@@ -10,15 +10,10 @@ public sealed class RefreshToken : EntityBase
 {
     [Required]
     public string UserId { get; private set; } = string.Empty;
-
     public string Token { get; private set; } = string.Empty;
-
     public DateTime ExpiresAt { get; private set; }
-
     public DateTime CreatedAt { get; private set; }
-
     public bool IsRevoked { get; private set; }
-
     public string? ReplacedByToken { get; private set; }
 
     // Navegação
@@ -35,7 +30,6 @@ public sealed class RefreshToken : EntityBase
         CreatedAt = DateTime.UtcNow;
         IsRevoked = false;
     }
-
     public void Revoke(string? replacedByToken = null)
     {
         IsRevoked = true;

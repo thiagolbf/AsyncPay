@@ -7,19 +7,14 @@ namespace AsyncPay.Core.Entities;
 public sealed class Merchant : EntityBase
 {
     public string Name { get; private set; } = string.Empty;
-
     public string Document { get; private set; } = string.Empty;
-
     public string BankAccount { get; private set; } = string.Empty;
-
     public DateTime CreatedAt { get; private set; }
-
     //Navegação
     public ICollection<Payment> Payments { get; private set; } = new List<Payment>();
 
     //EF
     private Merchant() { }
-
     public Merchant(string name, string document, string bankAccount)
     {
         if (string.IsNullOrWhiteSpace(name))

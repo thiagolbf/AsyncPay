@@ -11,9 +11,7 @@ public sealed class PaymentEvent : EntityBase
 
     public PaymentStatus FromStatus { get; private set; }
     public PaymentStatus ToStatus { get; private set; }
-
-    public string Reason { get; private set;} = string.Empty;
-
+    public string? Reason { get; private set;}
     public DateTime OcurredAt { get; private set; }
 
     //EF 
