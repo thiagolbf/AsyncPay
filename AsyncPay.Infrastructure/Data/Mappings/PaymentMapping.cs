@@ -58,7 +58,7 @@ public class PaymentMapping : IEntityTypeConfiguration<Payment>
 
         // FK para Application User
         builder.HasOne<ApplicationUser>()
-            .WithMany()
+            .WithMany(u => u.Payments)
             .HasForeignKey(x => x.UserId)
             .OnDelete(DeleteBehavior.Restrict);
     }

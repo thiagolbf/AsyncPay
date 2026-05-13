@@ -41,7 +41,7 @@ public class PaymentEventMapping : IEntityTypeConfiguration<PaymentEvent>
 
         // FK para Payment
         builder.HasOne<Payment>()
-            .WithMany()
+            .WithMany(p => p.Events)
             .HasForeignKey(e => e.PaymentId)
             .OnDelete(DeleteBehavior.Cascade);
     }

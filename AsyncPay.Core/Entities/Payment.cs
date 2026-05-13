@@ -9,21 +9,17 @@ namespace AsyncPay.Core.Entities;
 public sealed class Payment : EntityBase
 {
     public Guid MerchantId { get; private set; }
-
     [Required]
     public string UserId { get; private set; } = string.Empty;
-
     public decimal Amount { get; private set; }
-
     [Required]
     public string Currency { get; private set; } = string.Empty;
-
     public PaymentStatus Status { get; private set; }
-
     public string? ExternalId { get; private set; }
-
     public DateTime CreatedAt { get; private set; }
     public DateTime? UpdatedAt { get; private set; }
+
+    public ICollection<PaymentEvent> Events { get; private set; } = new List<PaymentEvent>();
 
     //EF
     private Payment() { }
