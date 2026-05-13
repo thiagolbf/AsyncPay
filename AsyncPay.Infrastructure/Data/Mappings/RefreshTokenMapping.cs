@@ -42,7 +42,8 @@ public class RefreshTokenMapping : IEntityTypeConfiguration<RefreshToken>
             .HasColumnType("varchar(500)");
 
         // FK para Application User
-        builder.HasOne<ApplicationUser>(u => u.User)
+        //builder.HasOne<ApplicationUser>()
+        builder.HasOne(u => u.User)
             .WithMany()
             .HasForeignKey(x => x.UserId)
             .OnDelete(DeleteBehavior.Cascade);
